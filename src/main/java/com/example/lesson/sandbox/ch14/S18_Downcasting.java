@@ -1,9 +1,5 @@
 package com.example.lesson.sandbox.ch14;
 
-import com.example.lesson.sandbox.ch14.S17_Polymorphism.Animal;
-import com.example.lesson.sandbox.ch14.S17_Polymorphism.Bird;
-import com.example.lesson.sandbox.ch14.S17_Polymorphism.Dog;
-
 public class S18_Downcasting {
 	/**
 	 * 1. 教學目標 說明向上轉型後會失去子類別特有功能，若要使用需轉型，但需防範轉型失敗。

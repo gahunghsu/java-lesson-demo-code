@@ -18,11 +18,24 @@ public class S23_AnonymousInnerClass {
                 System.out.println("貓可以走路和跳 (匿名類別實作)");
             }
         }.moving(); // 直接呼叫方法
+        
+        new Dog() {
+            // 覆寫 barking 方法
+            public void barking() {
+                System.out.println("汪汪 汪汪 汪汪");
+            }
+        }.barking(); // 直接呼叫方法
     }
 
     static class Animal {
         public void moving() {
             System.out.println("動物可以活動");
+        }
+    }
+    
+    static class Dog {
+        public void barking() {
+            System.out.println("旺旺");
         }
     }
 }
