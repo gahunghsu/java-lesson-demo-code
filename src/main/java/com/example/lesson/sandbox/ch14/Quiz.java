@@ -6,5 +6,8 @@ public class Quiz {
         // 建立子類別物件，觸發連鎖反應
         Cat cat = new Cat();
         System.out.println("Cat 的食物是: " + cat.food);
+        
+        Dog dog = new Dog();
+        System.out.println("Dog 的食物是: " + dog.food);
     }
 }
