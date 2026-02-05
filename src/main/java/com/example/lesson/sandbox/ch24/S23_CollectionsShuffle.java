@@ -2,7 +2,7 @@ package com.example.lesson.sandbox.ch24;
 
 import java.util.*;
 
-public class S19_CollectionsShuffle {
+public class S23_CollectionsShuffle {
     /**
      * 1. 教學目標
      * 展示 Collections 工具類別提供的演算法。shuffle 常用於遊戲 (洗牌) 或抽獎程式。

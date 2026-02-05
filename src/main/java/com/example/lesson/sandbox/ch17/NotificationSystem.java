@@ -1,7 +1,9 @@
+package com.example.lesson.sandbox.ch17;
 import java.util.*;
 
 // --- [介面 Interface]: 定義「行為規範」 ---
-// 「團隊開發」的合約，只要是訊息，就必須具備「檢查格式」的能力，才不會造成有人新增「訊息」種類，但沒有「檢查格式」
+// 「團隊開發」的合約，只要是訊息，就必須具備「檢查格式」的能力，
+// 才不會造成有人新增「訊息」種類，但沒有「檢查格式」
 interface Verifiable {
     boolean validate(); 
 }
