@@ -20,9 +20,7 @@ public class S02_AbstractClassDef {
 
     // 講師強調: 加上 abstract 關鍵字，代表這是一個抽象類別 (未完成的模具)
     abstract static class Shape {
-        public void draw() {
-            // 這裡暫時留空或寫預設實作，稍後會將其改為抽象方法
-        }
+        abstract public void draw() ;
     }
 
     static class Rectangle extends Shape {

@@ -19,11 +19,6 @@ public class S02_InterfaceIntro {
         airplane.flying();
     }
 
-    // 定義 Fly 介面: 這是一個「能力」的契約，不涉及它是什麼物種
-    interface Fly {
-        void flying(); // 抽象方法 (隱含 public abstract)
-    }
-
     // 鳥類別實作 Fly 介面
     static class Bird implements Fly {
         public void flying() {

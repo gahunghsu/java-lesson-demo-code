@@ -8,19 +8,26 @@ public class S31_ShapeApp {
 		double totalArea = 0;
 		for (Shape s : shapes) {
 			totalArea += s.getArea(); // 多型：自動呼叫正確的實作
-			System.out.printf("總面積為: %.2f%n", totalArea);
+			System.out.printf("%s 面積為: %.2f%n", s.getType(), s.getArea());
 		}
-
-//		System.out.printf("總面積為: %.2f", totalArea);
+		System.out.printf("總面積為: %.2f%n", totalArea);
 	}
 }
 
 //1. 定義父類別
-class Shape {
-	double getArea() {		
-		// 預設實作 (可選)
-		return 0;
-	}
+//class Shape {
+//	double getArea() {		
+//		// 預設實作 (可選)
+//		return 0;
+//	}
+//	String getType() {
+//		return "Shape";
+//	}
+//}
+
+abstract class Shape {
+	abstract double getArea() ;
+	abstract String getType() ;
 }
 
 //2. 實作 Circle
@@ -35,9 +42,14 @@ class Circle extends Shape {
 	double getArea() {
 		return Math.PI * r * r;
 	}
+	
+	@Override
+	String getType() {
+		return "Circle";
+	}
 }
 
-//2. 實作 Rectangle
+//3. 實作 Rectangle
 class Rectangle extends Shape {
 	private double width, height;
 
@@ -49,5 +61,10 @@ class Rectangle extends Shape {
 	@Override
 	double getArea() {
 		return width * height;
+	}
+	
+	@Override
+	String getType() {
+		return "Rectangle";
 	}
 }

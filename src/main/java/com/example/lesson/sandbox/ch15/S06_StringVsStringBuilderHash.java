@@ -36,8 +36,8 @@ public class S06_StringVsStringBuilderHash {
         System.out.println("Object 類別(StringBuilder)明志科大的 hashCode: " + hd4);
 
         // [AI 補充演示] 講師可額外加入這行證明 StringBuilder 內容相同 Hash 卻不同:
-        // StringBuilder msg5 = new StringBuilder("明志科大");
-        // System.out.println("另一個 StringBuilder(明志科大): " + msg5.hashCode());
+         StringBuilder msg5 = new StringBuilder("明志科大");
+         System.out.println("另一個 StringBuilder(明志科大): " + msg5.hashCode());
         // 結果會與 msg4 不同
     }
 }

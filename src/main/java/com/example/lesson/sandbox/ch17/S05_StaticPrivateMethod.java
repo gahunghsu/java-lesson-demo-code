@@ -22,6 +22,7 @@ public class S05_StaticPrivateMethod {
         default void method2() {
             System.out.println("進入 default 方法...");
             commonLogic(); // 呼叫 private 方法重用邏輯
+            commonStaticLogic(); // 也可以呼叫 private static 方法
         }
 
         // 3. Static 方法 (工具方法，不需實例化)

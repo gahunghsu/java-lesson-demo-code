@@ -25,6 +25,6 @@ public class S03_InterfaceFields {
 
         // 隱含規則: 方法預設是 public abstract
         // 講師動作: 嘗試加上 protected void area(); (會報錯，介面方法必須公開)
-        void area();
+        abstract void area();
     }
 }

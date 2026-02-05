@@ -32,5 +32,10 @@ public class S04_DefaultMethod {
 
         // 講師說明: Eagle 這裡並沒有重寫 action()，直接繼承介面的版本
         // 當然，也可以選擇 @Override 把推掉
+//        
+//        @Override
+//        public void action() {
+//        	System.out.println("老鷹展翅高飛");
+//        }
     }
 }

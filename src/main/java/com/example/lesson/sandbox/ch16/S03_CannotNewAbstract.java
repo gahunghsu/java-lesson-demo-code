@@ -12,7 +12,7 @@ public class S03_CannotNewAbstract {
     public static void main(String[] args) {
         // === 講師演示重點 ===
         // 請取消下面這行的註解，展示 IDE 的紅字錯誤
-        // Shape shape = new Shape();
+//         Shape shape = new Shape();
         // 錯誤訊息: Shape is abstract; cannot be instantiated
 
         // 正確用法: 必須 new 子類別
