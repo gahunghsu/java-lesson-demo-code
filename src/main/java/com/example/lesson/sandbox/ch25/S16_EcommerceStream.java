@@ -3,6 +3,22 @@ package com.example.lesson.sandbox.ch25;
 import java.util.*;
 import java.util.stream.Collectors;
 
+class Product {
+    String name;
+    String category;
+    int price;
+
+    public Product(String name, String category, int price) {
+        this.name = name;
+        this.category = category;
+        this.price = price;
+    }
+
+    public String getName() { return name; }
+    public String getCategory() { return category; }
+    public int getPrice() { return price; }
+}
+
 public class S16_EcommerceStream {
     /**
      * 1. 教學目標
@@ -16,9 +32,9 @@ public class S16_EcommerceStream {
         List<Product> products = Arrays.asList(
                 new Product("iPhone 15", "Electronics", 30000),
                 new Product("T-Shirt", "Clothing", 500),
+                new Product("Headphones", "Electronics", 2000),
                 new Product("TV", "Electronics", 15000),
-                new Product("Jeans", "Clothing", 1200),
-                new Product("Headphones", "Electronics", 2000)
+                new Product("Jeans", "Clothing", 1200)
         );
 
         System.out.println("=== 篩選 Electronics 類別並依價格由高到低排序 ===");
@@ -41,21 +57,5 @@ public class S16_EcommerceStream {
                 .mapToInt(Product::getPrice)
                 .sum();
         System.out.println("總金額: $" + total);
-    }
-
-    static class Product {
-        String name;
-        String category;
-        int price;
-
-        public Product(String name, String category, int price) {
-            this.name = name;
-            this.category = category;
-            this.price = price;
-        }
-
-        public String getName() { return name; }
-        public String getCategory() { return category; }
-        public int getPrice() { return price; }
     }
 }
