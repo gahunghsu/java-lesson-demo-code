@@ -38,8 +38,11 @@ class Student {
 public class S17_StudentStreamDemo {
 	public static void main(String[] args) {
 		// 準備資料
-		List<Student> students = Arrays.asList(new Student("小明", 80, 75, 55), new Student("小華", 90, 85, 95),
-				new Student("小美", 70, 40, 50), new Student("大壯", 95, 60, 45));
+		List<Student> students = Arrays.asList(
+				new Student("小明", 80, 75, 55), 
+				new Student("小華", 90, 85, 95),
+				new Student("小美", 70, 40, 50), 
+				new Student("大壯", 95, 60, 45));
 
 		// 1. 計算平均分 Map (使用 Function 邏輯)
 		// 這裡對應你圖中的 Function (T -> R)，將 Student 物件轉為平均分數
@@ -60,13 +63,23 @@ public class S17_StudentStreamDemo {
 		// 2. 數學不及格名單 (依國文排序)
 		// filter 對應 Predicate (T -> boolean)，判斷是否不及格
 		List<String> failedMath = students.stream().filter(s -> s.getMath() < 60)
-				.sorted(Comparator.comparingInt(Student::getChinese).reversed()).map(Student::getName)
+				.sorted(Comparator.comparingInt(Student::getChinese).reversed())
+				.map(Student::getName)
 				.collect(Collectors.toList());
 		System.out.println("2. 數學不及格名單 (依國文高到低): " + failedMath);
 
 		// 3. 英文總平均
 		// mapToInt 將物件轉為數值流，average() 回傳 OptionalDouble
-		double engAvg = students.stream().mapToInt(Student::getEnglish).average().orElse(0.0); // 如果沒有學生，預設平均為 0.0
+		double engAvg = students.stream()
+				.mapToInt(Student::getEnglish)
+				.average()
+				.orElse(0.0); // 如果沒有學生，預設平均為 0.0
+		
+		int sum = students.stream()
+		.mapToInt(Student::getEnglish)
+		.sum();
+		
 		System.out.printf("3. 班級英文總平均: %.2f\n", engAvg);
+		System.out.printf("3. 班級英文總平均: %.2f\n", sum / (double) students.size());
 	}
 }
