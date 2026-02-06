@@ -8,6 +8,8 @@ public class S11_StreamAPI {
 	public static void main(String[] args) {
 		// 1. 資料來源
 		List<Integer> numbers = Arrays.asList(5, 2, 8, 1, 3, 4, 6);
+		
+		List.of(1,2).add(3);
 
 		// 2. Stream 流水線操作
 		List<Integer> result = numbers.stream() // 建立 Stream
@@ -27,7 +29,7 @@ public class S11_StreamAPI {
 		List<Integer> nagtiveNumbers = Arrays.asList(-10, 5, -20, 30);
 
 		// 使用方法參考 Math::abs
-		List<Integer> absNumbers = nagtiveNumbers.stream().map(Math::abs).collect(Collectors.toList());
+		List<Integer> absNumbers = nagtiveNumbers.stream().map(Math::abs).sorted().collect(Collectors.toList());
 
 		System.out.println(absNumbers); // 輸出: [10, 5, 20, 30]
 	}
