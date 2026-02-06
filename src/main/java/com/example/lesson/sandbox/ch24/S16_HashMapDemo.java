@@ -2,7 +2,7 @@ package com.example.lesson.sandbox.ch24;
 
 import java.util.*;
 
-public class S15_HashMapDemo {
+public class S16_HashMapDemo {
     /**
      * 1. 教學目標
      * 展示 Map 的基本操作：put (新增/覆蓋), get (查詢), containsKey (檢查), remove (刪除)。這就像操作一本字典。
