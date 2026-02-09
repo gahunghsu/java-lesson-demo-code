@@ -11,6 +11,8 @@ INSERT INTO orders VALUES('RED TEA', 50, 10, 'Ted'),
 
 INSERT INTO orders VALUES('RED TEA', 50, 10, 'Ted');
 
+USE dynamic_survey;
+
 SELECT drink_name, SUM(quantity) AS 總銷售杯數, SUM(price * quantity) as 總收入
   FROM orders 
  group by drink_name;
@@ -18,9 +20,9 @@ SELECT drink_name, SUM(quantity) AS 總銷售杯數, SUM(price * quantity) as �
 SELECT drink_name, SUM(quantity) AS 總銷售杯數, SUM(price * quantity) as 總收入
   FROM orders 
  group by drink_name
- having SUM(price * quantity) > 5000;
+having SUM(price * quantity) > 5000;
  
 select concat(customer_name, ' (VIP)') as 'VIP',  count(customer_name) as 購買次數
   FROM orders 
  group by customer_name
- having count(customer_name) > 3;
+having count(customer_name) > 3;
