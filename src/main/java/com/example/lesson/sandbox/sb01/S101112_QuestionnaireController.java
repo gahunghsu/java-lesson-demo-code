@@ -26,6 +26,16 @@ public class S101112_QuestionnaireController {
     public String hello() {
         return "API is working!";
     }
+    
+    @PutMapping
+    public String put() {
+        return "API is working!";
+    }
+    
+    @DeleteMapping
+    public String delete() {
+        return "API is working!";
+    }
 }
 
 /*

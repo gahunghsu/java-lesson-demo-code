@@ -1,11 +1,18 @@
 package com.example.lesson.sandbox.sb01;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.UUID;
 // import org.hibernate.annotations.Type; // Hibernate specific
 
 @Entity
 @Table(name = "user_session")
+@Data
+@NoArgsConstructor // 自動生成無參數建構子
+@AllArgsConstructor // 自動生成全參數建構子
 public class S05_UserSession {
 
     // 1. @Type(type = "uuid-char"): 告訴 Hibernate 把這個欄位當作 UUID 字串存進 DB (VARCHAR/CHAR)
@@ -18,13 +25,6 @@ public class S05_UserSession {
 
     @Column(name = "user_name")
     private String userName;
-
-    // ... Getters & Setters
-    public UUID getId() { return id; }
-    public void setId(UUID id) { this.id = id; }
-    
-    public String getUserName() { return userName; }
-    public void setUserName(String userName) { this.userName = userName; }
 }
 
 /*

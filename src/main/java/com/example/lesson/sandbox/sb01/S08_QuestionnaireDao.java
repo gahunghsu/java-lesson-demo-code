@@ -9,7 +9,7 @@ import java.util.List;
 @Repository
 public interface S08_QuestionnaireDao extends JpaRepository<S0203_Questionnaire, Integer> {
 
-    // 這裡什麼都不用寫，就已經擁有 save, findById, delete, findAll 等功能
+    // 這裡什麼都不用寫，就已經擁有 save(新增資料), findById, delete, findAll 等功能
 
     // 進階:如果需要根據標題查詢，只需定義方法名
     // List<Questionnaire> findByTitle(String title);

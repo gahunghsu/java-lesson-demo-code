@@ -1,11 +1,22 @@
 package com.example.lesson.sandbox.sb01;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 // 1. @Entity: 告訴 Spring 這是要對應資料庫的類別 
 // 2. @Table: 指定資料庫中的表名為 "questionnaire" 
 @Entity
 @Table(name = "questionnaire")
+@Data
+@NoArgsConstructor // 自動生成無參數建構子
+@AllArgsConstructor // 自動生成全參數建構子
 public class S0203_Questionnaire {
 
     // 3. @Id: 這是身分證字號 (Primary Key) 
@@ -21,20 +32,6 @@ public class S0203_Questionnaire {
 
     @Column(name = "description")
     private String description;
-
-    // 必須保留無參數建構子，JPA 才能運作
-    public S0203_Questionnaire() {
-    }
-
-    // Getter & Setter (省略以節省版面)
-    public Integer getId() { return id; }
-    public void setId(Integer id) { this.id = id; }
-    
-    public String getTitle() { return title; }
-    public void setTitle(String title) { this.title = title; }
-    
-    public String getDescription() { return description; }
-    public void setDescription(String description) { this.description = description; }
 }
 
 /*

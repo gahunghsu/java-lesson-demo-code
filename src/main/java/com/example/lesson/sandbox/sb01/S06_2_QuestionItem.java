@@ -1,11 +1,17 @@
 package com.example.lesson.sandbox.sb01;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 // 步驟 2: 在 Entity 上使用 @IdClass
 @Entity
 @IdClass(S06_1_QuestionId.class) // 指定剛剛寫的主鍵類別
 @Table(name = "question_item")
+@Data
+@NoArgsConstructor // 自動生成無參數建構子
+@AllArgsConstructor // 自動生成全參數建構子
 public class S06_2_QuestionItem {
 
     @Id // 第一個 PK
@@ -19,15 +25,8 @@ public class S06_2_QuestionItem {
     @Column(name = "content")
     private String content;
 
-    // ...
-    public Integer getQuestionnaireId() { return questionnaireId; }
-    public void setQuestionnaireId(Integer questionnaireId) { this.questionnaireId = questionnaireId; }
-    
-    public Integer getQuestionId() { return questionId; }
-    public void setQuestionId(Integer questionId) { this.questionId = questionId; }
-    
-    public String getContent() { return content; }
-    public void setContent(String content) { this.content = content; }
+	 // Getters 和 Setters 會由 @Data 自動產出
+	 // toString() 也會自動產出，方便 Log 觀察
 }
 
 /*

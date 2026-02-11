@@ -29,4 +29,5 @@ public class EmailController {
     public String home() {
 		return "Welcome to the Email Service!";
 	}
+    
 }
