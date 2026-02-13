@@ -2,12 +2,17 @@ package com.example.lesson.sb02.service;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.lesson.sb02.entity.PersonInfo;
 import com.example.lesson.sb02.repository.PersonInfoRepository;
+import com.example.lesson.sb02.vo.PersonBankRecord;
 
 @Service
 public class PersonService {
@@ -118,5 +123,38 @@ public class PersonService {
 		// 測試 idempotent insert
 		return repository.insertIfNotExists(name, age);
 	}
+    
+    @Transactional
+    public void deleteMinors(int age) {
+    	repository.deleteMinors(age);
+    }
+    
+    public List<Map<String, Object>> findPersonMapByAge(int age) {
+		return repository.findPersonMapByAge(age);
+	}
+    
+    public List<PersonInfo> findPersonObjectByAge(int age) {
+    			return repository.findPersonObjectByAge(age);
+    }
+    
+    public List<PersonInfo> searchAdvanced(String name, Integer minAge, Integer maxAge) {
+		return repository.searchAdvanced(name, minAge, maxAge);
+	}
+    
+    public List<PersonBankRecord> findRichPeople(){
+    			return repository.findRichPeople(10000.0);
+    }
+    
+    public Page<PersonBankRecord> demoPagination() {
+        // 查詢第 0 頁，每頁 3 筆資料 [cite: 376]
+        Pageable pageRequest = PageRequest.of(0, 3);
+        
+        Page<PersonBankRecord> pageResult = repository.findPeopleByAgeWithPaging(18, pageRequest);
+        
+        System.out.println("總頁數: " + pageResult.getTotalPages());
+        System.out.println("本頁資料: " + pageResult.getContent());
+        
+        return pageResult;
+    }
 
 }

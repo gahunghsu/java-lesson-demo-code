@@ -1,9 +1,13 @@
 package com.example.lesson.sb02.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.lesson.sb02.entity.PersonInfo;
 import com.example.lesson.sb02.service.PersonService;
+import com.example.lesson.sb02.vo.PersonBankRecord;
 
 @RestController
 public class PersonInfoController {
@@ -62,5 +67,37 @@ public class PersonInfoController {
 	public void demoCacheClean(@RequestBody PersonInfo person) {
 		personService.demoCacheClean(person.getName());
 	}
+	
+	@DeleteMapping("/delete-minors/{age}")
+	public void deleteMinors(@PathVariable("age") Integer age) {
+		personService.deleteMinors(age);
+	}
+	
+	@GetMapping("/person-map-by-age/{age}")
+	public List<Map<String, Object>> findPersonMapByAge(@PathVariable("age") Integer age) {
+		return personService.findPersonMapByAge(age);
+	}
+	
+	@GetMapping("/person-object-by-age/{age}")
+	public List<PersonInfo> findPersonObjectByAge(@PathVariable("age") Integer age) {
+		return personService.findPersonObjectByAge(age);
+	}
+	
+	@GetMapping("/searchAdvanced")
+	public List<PersonInfo> searchAdvanced() {
+		return personService.searchAdvanced("七", 18, 45);
+	}
+	
+	@GetMapping("/rich-people")
+	public List<PersonBankRecord> findRichPeople() {
+		return personService.findRichPeople();
+	}
+	
+	@GetMapping("/rich-people-paged")
+	public Page<PersonBankRecord> findRichPeoplePaged() {
+		return personService.demoPagination();
+	}
+	
+	
 
 }
